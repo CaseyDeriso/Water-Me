@@ -1,6 +1,3 @@
-/*
- * Auto-generated content from the Brackets New Project extension.  Enjoy!
- */
 
 
 let PlantsController = (function() {
@@ -95,8 +92,10 @@ var UIcontroller = (function() {
     };
 })
 
-
-
+// GLOBAL APP CONTOLLWE
+var Controller (function(PlantsCtrl, UICtrl) {
+    
+})(PlantsController, UIcontroller);
 
 
 
