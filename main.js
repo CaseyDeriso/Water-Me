@@ -1,6 +1,6 @@
 
 
-let PlantsController = (function() {
+var PlantsController = (function() {
     
     // plant function constructor
     var Plant = function(id, name, amountWater, frequencyWater) {
@@ -94,6 +94,6 @@ var UIcontroller = (function() {
 })
 
 // GLOBAL APP CONTOLLWE
-var Controller (function(PlantsCtrl, UICtrl) {
+var Controller = (function(PlantsCtrl, UICtrl) {
     
 })(PlantsController, UIcontroller);
