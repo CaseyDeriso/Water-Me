@@ -2,6 +2,7 @@
 
 let PlantsController = (function() {
     
+    // plant function constructor
     var Plant = function(id, name, amountWater, frequencyWater) {
             this.id= id;
             this.name= name;
@@ -96,18 +97,3 @@ var UIcontroller = (function() {
 var Controller (function(PlantsCtrl, UICtrl) {
     
 })(PlantsController, UIcontroller);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
