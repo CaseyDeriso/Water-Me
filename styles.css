@@ -1,11 +1,26 @@
+* {
+    font-family: 'merriweather', serif;
+}
+
 h1 {
-    color: red;
+    display: flex;
+    justify-content: center;
 }
 
 body {
-    background-color: green;
+    background-color:rgb(255, 255, 255);
 }
 
 p {
     color: orange;
 }
+
+input, form, .add{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 5px 20px 5px;
+    border-radius: 4px;
+    box-shadow: initial;
+    margin: 1rem;
+  }
