@@ -5,17 +5,27 @@
 h1 {
     display: flex;
     justify-content: center;
+    margin-top: 0px;
 }
 
 body {
-    background-color:rgb(255, 255, 255);
+    margin: 0px;
 }
 
-p {
-    color: orange;
+.top {
+    min-height: 35vh;
+    width: 100%;
+    margin: 0px;
+    background-image: url(back.jpg);
+    background-size: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
 }
 
-input, form, .add{
+
+
+
+.add_container {
     display: flex;
     justify-content: center;
     text-align: center;
