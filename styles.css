@@ -73,7 +73,7 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     max-width: 60%;
-    height: 60%
+    height: 60%;
   }
 
 .plant__clearfix {
@@ -84,4 +84,9 @@ body {
     border-radius: 8px;
     background-color: pink;
     text-align: center;
+    transition: .2s;
+}
+
+.plant__clearfix:hover {
+    transform: translateY(-.1rem);
 }
