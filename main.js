@@ -144,7 +144,7 @@ var Controller = (function(PlantsController, UICtrl) {
         var DOM = UICtrl.getDOMstrings();
         
         // broken....
-        document.querySelector(DOM.inputButton).addEventListener('click', addPlant());
+        // document.querySelector(DOM.inputButton).addEventListener('click', addPlant());
 
         document.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.which === 13) { //keyCode 13 is enter
