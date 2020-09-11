@@ -5,6 +5,11 @@
 
 h1 {
     color: rgb(196, 100, 12);
+    text-align: center;
+}
+
+p {
+    text-align: center;
 }
 
 body {
@@ -72,8 +77,8 @@ body {
   }
 
 .plant__clearfix {
-    width: 120px;
-    height: 90px;
+    width: 100px;
+    height: 120px;
     margin: 8px;
     border: 2px solid black;
     border-radius: 8px;

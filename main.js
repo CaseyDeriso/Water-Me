@@ -102,7 +102,7 @@ var UIcontroller = (function() {
             // Create HTML string with placeholder text
             element = DOMstrings.plantContainer;
                 
-            html = '<div class="plant__clearfix" id= "plant-%id%" > <div class="plantName"> %plantName% <div class="amountWater"> %amountWater% cups <div class="frequencyWater"> %frequencyWater%</div> </div> </div> </div> </div>';
+            html = '<div class="plant__clearfix" id= "plant-%id%"> <div class="plantName"> %plantName% </div> <div class="amountWater"> %amountWater% </div> <img src="https://picsum.photos/100/75"> </div>'
             
             
             // Replace placeholder text with data from object
@@ -110,7 +110,6 @@ var UIcontroller = (function() {
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%plantName%', obj.name);
             newHtml = newHtml.replace('%amountWater%', obj.amountWater);
-            newHtml = newHtml.replace('%frequencyWater%', obj.frequencyWater);
             
             // Insert the HTML into the DOM
             
