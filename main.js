@@ -60,8 +60,8 @@ var UIcontroller = (function() {
         inputName: '.pName',
         inputAmount: '.aWater',
         inputFrequency: '.often',
-        inputButton: '.add_btn',
-        plantContainer: '.plant_container',
+        inputButton: '.add__btn',
+        plantContainer: '.plant__container',
         
     }
     
@@ -102,7 +102,7 @@ var UIcontroller = (function() {
             // Create HTML string with placeholder text
             element = DOMstrings.plantContainer;
                 
-            html = '<div class="plant_clearfix" id= "plant-%id%" > <div class="plantName"> %plantName% <div class="amountWater"> %amountWater% cups <div class="frequencyWater"> %frequencyWater%</div> </div> </div> </div> </div>';
+            html = '<div class="plant__clearfix" id= "plant-%id%" > <div class="plantName"> %plantName% <div class="amountWater"> %amountWater% cups <div class="frequencyWater"> %frequencyWater%</div> </div> </div> </div> </div>';
             
             
             // Replace placeholder text with data from object
@@ -144,7 +144,7 @@ var Controller = (function(PlantsController, UICtrl) {
         var DOM = UICtrl.getDOMstrings();
         
         // broken....
-        // document.querySelector(DOM.inputButton).addEventListener('click', addPlant);
+        document.querySelector(DOM.inputButton).addEventListener('click', addPlant());
 
         document.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.which === 13) { //keyCode 13 is enter
