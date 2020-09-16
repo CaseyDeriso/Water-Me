@@ -13,8 +13,7 @@ var PlantsController = (function() {
         Plant.prototype.wateringTime = function() {
            
             // create resetable timer to run waterMe() on plant that needs to be watered. 
-            waterMe(7,0)
-
+            
         }
 
         function waterMe(frequencyWater, ID) {
@@ -38,11 +37,18 @@ var PlantsController = (function() {
             newItem = new Plant(ID, name, amtWat, freqWat);
             
             data.plants.push(newItem);
+
+            localStorage.setItem(Math.random() ,PlantsController.data);
+
             
             return newItem
         },
         
-    testing: function() {
+        deletePlant: function (id) {
+            data.plants.splice(id,1);
+        },
+
+        testing: function() {
             console.log(data);
         },
         
@@ -102,18 +108,24 @@ var UIcontroller = (function() {
             // Create HTML string with placeholder text
             element = DOMstrings.plantContainer;
                 
-            html = '<div class="plant__clearfix" id= "plant-%id%"> <div class="plantName"> %plantName% </div> <div class="amountWater"> %amountWater% </div> <img src="https://picsum.photos/100/75"> </div>'
+            html = '<div class="plant__clearfix" id= "plant-%id%"> <button class= "water" onClick="waterMe(%frequencyWater% , %id%)"> water </button> <button class= "delete%id%" onClick= "Controller.removePlant(%id%)"> X </button> <div class="plantName"> %plantName% </div> <div class="amountWater"> %amountWater% Cups </div> <img src="https://picsum.photos/100/50"> </div>'
             
             
             // Replace placeholder text with data from object
             
-            newHtml = html.replace('%id%', obj.id);
+            newHtml = html.replaceAll('%id%', obj.id);
             newHtml = newHtml.replace('%plantName%', obj.name);
             newHtml = newHtml.replace('%amountWater%', obj.amountWater);
+            newHtml = newHtml.replace('%frequencyWater%', obj.frequencyWater);
             
             // Insert the HTML into the DOM
             
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml)
+        },
+
+        deleteListItem: function(ID) {
+            var el = document.getElementById('plant-' + ID);
+            el.parentNode.removeChild(el);
         },
 
         clearFields: function() {
@@ -140,10 +152,9 @@ var Controller = (function(PlantsController, UICtrl) {
    
     var setupEventListeners = function() {
         
-        var DOM = UICtrl.getDOMstrings();
-        
-        // broken....
-        // document.querySelector(DOM.inputButton).addEventListener('click', addPlant());
+        clickAdd = function() {
+            addPlant();
+        };
 
         document.addEventListener('keypress', function(event) {
             if (event.keyCode === 13 || event.which === 13) { //keyCode 13 is enter
@@ -158,8 +169,8 @@ var Controller = (function(PlantsController, UICtrl) {
         
             // 1. Get the input data from UI field
             input = UIcontroller.getInput();
-        // Check that users input is valid for our data structure
-        if (input.name !== "" && !isNaN(input.frequencyWater) && input.frequencyWater > 0 && !isNaN(input.amountWater) && input.amountWater > 0) { 
+            // Check that users input is valid for our data structure
+            if (input.name !== "" && !isNaN(input.frequencyWater) && input.frequencyWater > 0 && !isNaN(input.amountWater) && input.amountWater > 0) { 
            
             // 2. add the item to the plants controller
             newItem = PlantsController.addPlant(input.name, input.amountWater, input.frequencyWater)
@@ -171,12 +182,20 @@ var Controller = (function(PlantsController, UICtrl) {
             UICtrl.clearFields();
             
         }
-    }
+    };
+
     return {
         init: function () {
             setupEventListeners();
             UICtrl.displayMonth();
-            }
+            // Retrieve the object from storage
+            var retrievedObject = localStorage.getItem(data);
+        },
+        
+        removePlant: function(id) {
+            PlantsController.deletePlant(id);
+            UIcontroller.deleteListItem(id);
+        },
     };
     
 }) (PlantsController, UIcontroller);

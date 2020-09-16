@@ -82,11 +82,13 @@ body {
     margin: 8px;
     border: 2px solid black;
     border-radius: 8px;
+    box-shadow: 0 8px 6px -8px rgba(0, 0, 0, 0.6);
     background-color: pink;
     text-align: center;
-    transition: .2s;
+    transition: .1s;
 }
 
 .plant__clearfix:hover {
     transform: translateY(-.1rem);
+    box-shadow: 0 8px 6px -7px rgba(0, 0, 0, 0.6);
 }
