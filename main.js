@@ -13,17 +13,18 @@ var PlantsController = (function() {
         Plant.prototype.wateringTime = function() {
            
             // create resetable timer to run waterMe() on plant that needs to be watered. 
-            
-        }
+
+        };
 
         function waterMe(frequencyWater, ID) {
 
             // perform dom manipulation to reset watering indicator
             console.log(`%{ID} has been watered!`)
-        }
-    var data = {
-        plants: [],
-    }
+        };
+
+        var data = {
+            plants: [],
+        };
     
     return {
         addPlant: function (name, amtWat, freqWat) {
